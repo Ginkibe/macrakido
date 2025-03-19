@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Macrakido - creators of premium handcrafted macrame curtains and home decor. Discover our story, mission, and commitment to quality.">
+    <title>About Us | Macrakido</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f7f3eb;
+            color: #534c40;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header styles */
+        .site-header {
+            padding: 1.5rem 0;
+            background-color: #f7f3eb;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #534c40;
+            text-decoration: none;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .main-nav a {
+            text-decoration: none;
+            color: #534c40;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .main-nav a:hover, .main-nav a.active {
+            color: #8a7e6b;
+        }
+        
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #8a7e6b;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s;
+        }
+        
+        .main-nav a:hover::after, .main-nav a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            color: #534c40;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Page banner */
+        .page-banner {
+            background-color: #efe9dd;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .page-banner h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: #534c40;
+        }
+        
+        .page-banner p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #706656;
+        }
+        
+        /* About sections */
+        .about-section {
+            padding: 4rem 0;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-reverse {
+            direction: rtl;
+        }
+        
+        .about-reverse > * {
+            direction: ltr;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(83, 76, 64, 0.2);
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .about-content {
+            padding-right: 2rem;
+        }
+        
+        .about-reverse .about-content {
+            padding-right: 0;
+            padding-left: 2rem;
+        }
+        
+        .about-title {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: #534c40;
+        }
+        
+        .about-subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #8a7e6b;
+        }
+        
+        .about-text {
+            margin-bottom: 1.5rem;
+            color: #706656;
+            font-size: 1.05rem;
+        }
+        
+        /* Values section */
+        .values-section {
+            padding: 4rem 0;
+            background-color: #efe9dd;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: #534c40;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #8a7e6b;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .value-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(138, 126, 107, 0.1);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: #8a7e6b;
+            margin-bottom: 1.5rem;
+        }
+        
+        .value-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #534c40;
+        }
+        
+        .value-description {
+            color: #706656;
+        }
+        
+        /* Team section */
+        .team-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(138, 126, 107, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center top;
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+        }
+        
+        .member-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #534c40;
+        }
+        
+        .member-role {
+            font-size: 1rem;
+            color: #8a7e6b;
+            margin-bottom: 1rem;
+        }
+        
+        .member-bio {
+            color: #706656;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        /* CTA section */
+        .cta-section {
+            padding: 6rem 0;
+            background-color: #534c40;
+            color: #f7f3eb;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .cta-text {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #e0d9cc;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #f7f3eb;
+            color: #534c40;
+            text-decoration: none;
+            padding: 0.75rem 2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #ffffff;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        .site-footer {
+            background-color: #534c40;
+            color: #f7f3eb;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-tagline {
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: #e0d9cc;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(247, 243, 235, 0.2);
+            color: #f7f3eb;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: rgba(247, 243, 235, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 1rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 991px) {
+            .about-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-image {
+                height: 400px;
+            }
+            
+            .about-content,
+            .about-reverse .about-content {
+                padding-right: 0;
+                padding-left: 0;
+            }
+            
+            .page-banner h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .site-header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .main-nav {
+                width: 100%;
+                display: none;
+            }
+            
+            .main-nav.active {
+                display: block;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">MACRAKIDO</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    
+    <div class="page-banner">
+        <div class="container">
+            <h1>Our Story</h1>
+            <p>Discover the passion and craftsmanship behind Macrakido</p>
+        </div>
+    </div>
+    
+    <main>
+        <section class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2 class="about-title">A Passion for Macrame</h2>
+                        <p class="about-subtitle">From hobby to handcrafted home decor brand</p>
+                        <p class="about-text">
+                            Macrakido began with a passion for traditional macrame techniques and a vision to create beautiful, functional pieces for modern homes. What started as a creative outlet quickly blossomed into a mission to bring the warmth and texture of handcrafted macrame to homes across the country.
+                        </p>
+                        <p class="about-text">
+                            Our journey began when we discovered how macrame curtains could transform living spaces, adding natural texture and a touch of artistic craftsmanship to any room. After creating pieces for friends and family who fell in love with our designs, we decided to share our creations with a wider audience.
+                        </p>
+                    </div>
+                    <div class="about-image" style="background-image: url('https://via.placeholder.com/600x800/e0d9cc/534c40?text=Our+Story');"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="about-section">
+            <div class="container">
+                <div class="about-grid about-reverse">
+                    <div class="about-content">
+                        <h2 class="about-title">Our Craft</h2>
+                        <p class="about-subtitle">Blending tradition with contemporary design</p>
+                        <p class="about-text">
+                            Each Macrakido piece is thoughtfully designed and meticulously handcrafted. We blend traditional macrame knotting techniques with contemporary patterns and designs to create pieces that are both timeless and modern.
+                        </p>
+                        <p class="about-text">
+                            We believe in the beauty of imperfection that comes with handmade items. Every knot is tied with care, creating pieces with character and soul that machine-made products simply cannot replicate. This dedication to craftsmanship ensures that each Macrakido product is unique and made to last.
+                        </p>
+                    </div>
+                    <div class="about-image" style="background-image: url('https://via.placeholder.com/600x800/e0d9cc/534c40?text=Our+Craft');"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="values-section">
+            <div class="container">
+                <h2 class="section-title">Our Values</h2>
+                <p class="section-subtitle">
+                    The principles that guide everything we do at Macrakido
+                </p>
+                
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-hands"></i>
+                        </div>
+                        <h3 class="value-title">Craftsmanship</h3>
+                        <p class="value-description">
+                            We believe in the value of handcrafted products and the 
+                            unique character they bring to homes. Every knot, every 
+                            pattern is tied with intention and care.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="value-title">Sustainability</h3>
+                        <p class="value-description">
+                            We use natural, eco-friendly materials and 
+                            create durable products designed to last for years, 
+                            reducing the cycle of consumption and waste.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3 class="value-title">Beauty in Simplicity</h3>
+                        <p class="value-description">
+                            We believe in creating products that enhance spaces 
+                            without overwhelming them, bringing natural texture 
+                            and elegance to everyday living.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title">Meet Our Team</h2>
+                <p class="section-subtitle">
+                    The creative minds and skilled hands behind Macrakido
+                </p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-image" style="background-image: url('https://via.placeholder.com/400x500/e0d9cc/534c40?text=Team+Member');"></div>
+                        <div class="member-info">
+                            <h3 class="member-name">Emma Woodson</h3>
+                            <div class="member-role">Founder & Lead Designer</div>
+                            <p class="member-bio">
+                                With a background in textile design and a passion for traditional crafts, Emma brings creative vision and meticulous attention to detail to every Macrakido design.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-image" style="background-image: url('https://via.placeholder.com/400x500/e0d9cc/534c40?text=Team+Member');"></div>
+                        <div class="member-info">
+                            <h3 class="member-name">Michael Chen</h3>
+                            <div class="member-role">Production Manager</div>
+                            <p class="member-bio">
+                                Michael ensures that each piece meets our high quality standards while managing our production process from material selection to final inspection.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-image" style="background-image: url('https://via.placeholder.com/400x500/e0d9cc/534c40?text=Team+Member');"></div>
+                        <div class="member-info">
+                            <h3 class="member-name">Sophia Martinez</h3>
+                            <div class="member-role">Customer Experience</div>
+                            <p class="member-bio">
+                                Sophia is dedicated to ensuring that every customer has a wonderful experience with Macrakido, from purchase to installation and beyond.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title">Transform Your Space</h2>
+                <p class="cta-text">
+                    Browse our collection of handcrafted macrame curtains and home decor,
+                    and discover the perfect piece to add texture and warmth to your home.
+                </p>
+                <a href="products.html" class="cta-button">Shop Our Collection</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">MACRAKIDO</div>
+                <div class="footer-tagline">Weaving Elegance Into Everyday Spaces</div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 Macrakido. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
