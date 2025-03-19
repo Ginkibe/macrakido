@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | Macrakido</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles specific to products page */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(138, 126, 107, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(138, 126, 107, 0.2);
+        }
+        
+        .product-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .product-image .category-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: #8a7e6b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .product-details {
+            padding: 1.5rem;
+        }
+        
+        .product-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #534c40;
+        }
+        
+        .product-description {
+            color: #706656;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .product-features {
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .feature i {
+            color: #8a7e6b;
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+        
+        .amazon-button {
+            display: inline-block;
+            background-color: #534c40;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .amazon-button:hover {
+            background-color: #3a3530;
+        }
+        
+        .amazon-button i {
+            margin-right: 0.5rem;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-button {
+            background-color: transparent;
+            border: 1px solid #8a7e6b;
+            color: #8a7e6b;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .filter-button:hover, .filter-button.active {
+            background-color: #8a7e6b;
+            color: white;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">MACRAKIDO</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    
+    <div class="page-banner">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Handcrafted macrame pieces for your home</p>
+        </div>
+    </div>
+    
+    <main class="container">
+        <div class="filters">
+            <button class="filter-button active" data-filter="all">All Products</button>
+            <button class="filter-button" data-filter="curtains">Curtains</button>
+            <button class="filter-button" data-filter="tapestry">Tapestries</button>
+            <button class="filter-button" data-filter="kids">Kids Room</button>
+        </div>
+        
+        <div class="product-grid">
+            <!-- Mermaid Tapestry -->
+            <article class="product-card" data-category="tapestry kids">
+                <div class="product-image" style="background-image: url('images/mermaid-tapestry.jpg');">
+                    <span class="category-tag">Kids Room</span>
+                </div>
+                <div class="product-details">
+                    <h2 class="product-name">Mermaid Tapestry with Storage Basket</h2>
+                    <p class="product-description">Transform your child's room with our enchanting mermaid tapestry and matching storage basket, perfect for nurseries and kids' bedrooms.</p>
+                    <div class="product-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Premium cotton macrame</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Includes matching storage basket</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Safe, eco-friendly materials</span>
+                        </div>
+                    </div>
+                    <a href="https://amazon.com/your-mermaid-product-link" class="amazon-button">
+                        <i class="fab fa-amazon"></i> View on Amazon
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Dinosaur Tapestry -->
+            <article class="product-card" data-category="tapestry kids">
+                <div class="product-image" style="background-image: url('images/dinosaur-tapestry.jpg');">
+                    <span class="category-tag">Kids Room</span>
+                </div>
+                <div class="product-details">
+                    <h2 class="product-name">Dinosaur Tapestry with Storage Basket</h2>
+                    <p class="product-description">Create a prehistoric adventure in your child's room with our charming dinosaur tapestry and coordinating storage basket.</p>
+                    <div class="product-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Premium cotton macrame</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Includes matching storage basket</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Gender-neutral design</span>
+                        </div>
+                    </div>
+                    <a href="https://amazon.com/your-dinosaur-product-link" class="amazon-button">
+                        <i class="fab fa-amazon"></i> View on Amazon
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Natural Beige Curtain -->
+            <article class="product-card" data-category="curtains">
+                <div class="product-image" style="background-image: url('images/natural-curtain.jpg');">
+                    <span class="category-tag">Curtains</span>
+                </div>
+                <div class="product-details">
+                    <h2 class="product-name">Natural Beige Macrame Curtain</h2>
+                    <p class="product-description">Elegant macrame curtain in natural beige tones, perfect for adding texture and warmth to any window in your home.</p>
+                    <div class="product-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>100% premium cotton</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Standard 52" x 84" dimensions</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Easy rod pocket installation</span>
+                        </div>
+                    </div>
+                    <a href="https://amazon.com/your-natural-curtain-link" class="amazon-button">
+                        <i class="fab fa-amazon"></i> View on Amazon
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Coastal Blue Curtain -->
+            <article class="product-card" data-category="curtains">
+                <div class="product-image" style="background-image: url('images/coastal-curtain.jpg');">
+                    <span class="category-tag">Curtains</span>
+                </div>
+                <div class="product-details">
+                    <h2 class="product-name">Coastal Blue Macrame Curtain</h2>
+                    <p class="product-description">Bring the calming essence of the ocean into your space with our coastal blue macrame curtain featuring a gentle wave pattern.</p>
+                    <div class="product-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>100% premium cotton</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Standard 52" x 84" dimensions</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Natural dye process</span>
+                        </div>
+                    </div>
+                    <a href="https://amazon.com/your-coastal-curtain-link" class="amazon-button">
+                        <i class="fab fa-amazon"></i> View on Amazon
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Terracotta Curtain -->
+            <article class="product-card" data-category="curtains">
+                <div class="product-image" style="background-image: url('images/terracotta-curtain.jpg');">
+                    <span class="category-tag">Curtains</span>
+                </div>
+                <div class="product-details">
+                    <h2 class="product-name">Earthy Terracotta Macrame Curtain</h2>
+                    <p class="product-description">Add warmth and earthy elegance to your space with our terracotta macrame curtain featuring geometric patterns.</p>
+                    <div class="product-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>100% premium cotton</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Standard 52" x 84" dimensions</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Artisanal dyeing technique</span>
+                        </div>
+                    </div>
+                    <a href="https://amazon.com/your-terracotta-curtain-link" class="amazon-button">
+                        <i class="fab fa-amazon"></i> View on Amazon
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Lotus Tapestry -->
+            <article class="product-card" data-category="tapestry">
+                <div class="product-image" style="background-image: url('images/lotus-tapestry.jpg');">
+                    <span class="category-tag">Tapestry</span>
+                </div>
+                <div class="product-details">
+                    <h2 class="product-name">Lotus Flower Wall Tapestry</h2>
+                    <p class="product-description">Create a meditative space with our intricate lotus flower macrame wall tapestry, perfect for living rooms and bedrooms.</p>
+                    <div class="product-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Handcrafted design</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>30" x 40" wall hanging</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Eco-friendly materials</span>
+                        </div>
+                    </div>
+                    <a href="https://amazon.com/your-lotus-tapestry-link" class="amazon-button">
+                        <i class="fab fa-amazon"></i> View on Amazon
+                    </a>
+                </div>
+            </article>
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">MACRAKIDO</div>
+                <div class="footer-tagline">Weaving Elegance Into Everyday Spaces</div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 Macrakido. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+        
+        // Product filtering
+        const filterButtons = document.querySelectorAll('.filter-button');
+        const productCards = document.querySelectorAll('.product-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter products
+                const filter = this.getAttribute('data-filter');
+                
+                productCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const categories = card.getAttribute('data-category').split(' ');
+                        if (categories.includes(filter)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
