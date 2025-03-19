@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You | Macrakido</title>
+    <meta name="description" content="Macrakido - Premium handcrafted macrame curtains and home decor. Elevate your space with our beautifully woven designs.">
+    <title>Macrakido | Premium Macrame Curtains & Home Decor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         /* Reset and base styles */
         * {
@@ -19,86 +22,235 @@
             line-height: 1.6;
         }
         
-        /* Header */
-        header {
-            text-align: center;
-            padding: 2rem 1rem;
-            border-bottom: 1px solid #e0d9cc;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header styles */
+        .site-header {
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .site-header.scrolled {
+            background-color: rgba(247, 243, 235, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .logo {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tagline {
-            font-size: 1rem;
-            font-style: italic;
-            color: #706656;
-        }
-        
-        /* Main content */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .thank-you-section {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-        }
-        
-        .message {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-        
-        /* Product selection */
-        .product-section {
-            margin-bottom: 3rem;
-        }
-        
-        h2 {
-            text-align: center;
-            margin-bottom: 2rem;
             font-size: 1.8rem;
-            font-weight: 500;
+            font-weight: 600;
+            color: #534c40;
+            text-decoration: none;
         }
         
-        .products {
+        .main-nav ul {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            list-style: none;
             gap: 2rem;
         }
         
-        .product-card {
-            width: 260px;
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+        .main-nav a {
+            text-decoration: none;
+            color: #534c40;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .main-nav a:hover, .main-nav a.active {
+            color: #8a7e6b;
+        }
+        
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #8a7e6b;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s;
+        }
+        
+        .main-nav a:hover::after, .main-nav a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            color: #534c40;
+            font-size: 1.5rem;
             cursor: pointer;
         }
         
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            background: url('https://via.placeholder.com/1920x1080/f7f3eb/534c40') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 4rem;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(83, 76, 64, 0.2);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            color: #f7f3eb;
+            padding: 2rem;
+            background-color: rgba(83, 76, 64, 0.7);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .hero-tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #f7f3eb;
+            color: #534c40;
+            text-decoration: none;
+            padding: 0.75rem 2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #ffffff;
+            transform: translateY(-3px);
+        }
+        
+        /* Features section */
+        .features {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: #534c40;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #8a7e6b;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(138, 126, 107, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #8a7e6b;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #534c40;
+        }
+        
+        .feature-description {
+            color: #706656;
+        }
+        
+        /* Featured products section */
+        .featured-products {
+            padding: 4rem 0;
+            background-color: #efe9dd;
+        }
+        
+        .product-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(138, 126, 107, 0.1);
+            transition: transform 0.3s;
+        }
+        
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
         }
         
         .product-image {
-            height: 200px;
+            height: 250px;
             background-size: cover;
             background-position: center;
         }
@@ -107,344 +259,535 @@
             padding: 1.5rem;
         }
         
-        .product-title {
-            font-size: 1.1rem;
+        .product-category {
+            font-size: 0.8rem;
+            color: #8a7e6b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 0.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
             font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #534c40;
         }
         
         .product-description {
-            font-size: 0.9rem;
             color: #706656;
+            margin-bottom: 1.5rem;
         }
         
-        /* Review section */
-        .review-section {
-            display: none;
-            text-align: center;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .review-section.active {
-            display: block;
-        }
-        
-        .selected-product {
-            font-weight: 600;
-            color: #8a7e6b;
-            margin-bottom: 1rem;
-        }
-        
-        .review-options {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .review-button {
-            padding: 1rem;
-            border: none;
-            border-radius: 5px;
-            background-color: #8a7e6b;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .review-button:hover {
-            background-color: #706656;
-        }
-        
-        .feedback-form {
-            display: none;
-            margin-top: 2rem;
-            text-align: left;
-        }
-        
-        .feedback-form.active {
-            display: block;
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #e0d9cc;
-            border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        textarea {
-            height: 120px;
-            resize: vertical;
-        }
-        
-        .submit-button {
+        .shop-button {
+            display: inline-block;
             background-color: #534c40;
             color: white;
+            text-decoration: none;
             padding: 0.75rem 1.5rem;
-            border: none;
             border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
+            font-weight: 500;
             transition: background-color 0.3s;
         }
         
-        .submit-button:hover {
+        .shop-button:hover {
             background-color: #3a342d;
         }
         
-        /* Decorative elements */
-        .decorative-divider {
-            height: 50px;
-            margin: 2rem 0;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 50"><path d="M0,25 C100,0 300,50 600,25 C900,0 1100,50 1200,25" stroke="%238a7e6b" fill="none" stroke-width="1" /></svg>');
-            background-repeat: no-repeat;
+        /* About section */
+        .about {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(83, 76, 64, 0.2);
+            height: 500px;
+            background-size: cover;
             background-position: center;
-            background-size: contain;
+        }
+        
+        .about-content {
+            padding-right: 2rem;
+        }
+        
+        .about-title {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: #534c40;
+        }
+        
+        .about-description {
+            margin-bottom: 2rem;
+            color: #706656;
+            font-size: 1.05rem;
+        }
+        
+        .about-signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: #8a7e6b;
+        }
+        
+        /* Testimonials section */
+        .testimonials {
+            padding: 4rem 0;
+            background-color: #efe9dd;
+            text-align: center;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+        
+        .testimonial-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(138, 126, 107, 0.1);
+            margin: 0 1rem;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #706656;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 2rem;
+            color: #e0d9cc;
+            line-height: 0;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #534c40;
+        }
+        
+        .testimonial-location {
+            font-size: 0.9rem;
+            color: #8a7e6b;
+        }
+        
+        /* Newsletter section */
+        .newsletter {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .newsletter-form {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            display: flex;
+            box-shadow: 0 5px 15px rgba(138, 126, 107, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .newsletter-button {
+            background-color: #534c40;
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-button:hover {
+            background-color: #3a342d;
         }
         
         /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
+        .site-footer {
             background-color: #534c40;
             color: #f7f3eb;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-tagline {
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: #e0d9cc;
         }
         
         .social-links {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
         
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .social-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #f7f3eb;
-            color: #534c40;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(247, 243, 235, 0.2);
+            color: #f7f3eb;
+            border-radius: 50%;
             text-decoration: none;
-            font-size: 1.2rem;
-            transition: transform 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         
-        .social-icon:hover {
-            transform: scale(1.1);
+        .social-link:hover {
+            background-color: rgba(247, 243, 235, 0.3);
+            transform: translateY(-3px);
         }
         
         .copyright {
             font-size: 0.9rem;
-            opacity: 0.8;
+            opacity: 0.7;
+            margin-top: 1rem;
         }
         
-        /* Responsive */
+        /* Responsive styles */
+        @media (max-width: 991px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-image {
+                height: 400px;
+            }
+            
+            .about-content {
+                padding-right: 0;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .products {
+            .site-header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .main-nav {
+                width: 100%;
+                display: none;
+            }
+            
+            .main-nav.active {
+                display: block;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
                 gap: 1rem;
             }
             
-            .product-card {
-                width: 45%;
+            .mobile-menu-toggle {
+                display: block;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
             }
             
-            h1 {
-                font-size: 2rem;
+            .hero-content {
+                padding: 1.5rem;
             }
             
-            h2 {
-                font-size: 1.5rem;
+            .hero-title {
+                font-size: 2.5rem;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .product-card {
+            
+            .features-grid, 
+            .product-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input,
+            .newsletter-button {
                 width: 100%;
-            }
-            
-            .container {
                 padding: 1rem;
             }
         }
     </style>
-    <!-- Add Google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="logo">MACRAKIDO</div>
-        <div class="tagline">Premium Macrame Curtains</div>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">MACRAKIDO</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
     </header>
     
-    <div class="container">
-        <section class="thank-you-section">
-            <h1>Thank You</h1>
-            <p class="message">
-                We're grateful you chose our Premium Macrame Curtains for your space. 
-                Each piece is carefully handcrafted with attention to detail, bringing 
-                elegance and natural beauty to your home.
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tagline">Premium Macrame Curtains</div>
+                <h1 class="hero-title">Weaving Elegance Into Everyday Spaces</h1>
+                <p class="hero-description">
+                    Discover our collection of handcrafted macrame curtains and home decor,
+                    designed to bring texture, warmth, and natural beauty to your living spaces.
+                </p>
+                <a href="products.html" class="cta-button">Explore Collection</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Macrakido</h2>
+            <p class="section-subtitle">
+                Our premium macrame products are created with attention to detail,
+                using the finest materials to ensure beauty and durability.
             </p>
-        </section>
-        
-        <div class="decorative-divider"></div>
-        
-        <section class="product-section">
-            <h2>Which curtain design did you purchase?</h2>
-            <div class="products">
-                <div class="product-card" data-product="Natural Beige">
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <h3 class="feature-title">Handcrafted Quality</h3>
+                    <p class="feature-description">
+                        Each piece is carefully handmade with 
+                        attention to detail, ensuring a unique and 
+                        high-quality addition to your home.
+                    </p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="feature-title">Premium Materials</h3>
+                    <p class="feature-description">
+                        We use only the finest cotton ropes and 
+                        yarns, selected for their texture, durability,
+                        and eco-friendly properties.
+                    </p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3 class="feature-title">Custom Designs</h3>
+                    <p class="feature-description">
+                        Our designs blend traditional macrame techniques
+                        with contemporary patterns to create 
+                        timeless pieces for modern homes.
+                    </p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="feature-title">Transform Your Space</h3>
+                    <p class="feature-description">
+                        Add texture, warmth, and natural beauty
+                        to any room with our versatile macrame
+                        curtains and wall hangings.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <p class="section-subtitle">
+                Explore our most popular handcrafted macrame pieces,
+                designed to elevate your living spaces.
+            </p>
+            
+            <div class="product-showcase">
+                <div class="product-card">
                     <div class="product-image" style="background-image: url('https://via.placeholder.com/400x300/e6e0d4/534c40?text=Natural+Beige');"></div>
                     <div class="product-info">
-                        <div class="product-title">Natural Beige</div>
-                        <div class="product-description">Classic macrame curtain with natural cotton tones</div>
+                        <div class="product-category">Curtains</div>
+                        <h3 class="product-title">Natural Beige Macrame Curtain</h3>
+                        <p class="product-description">
+                            Elegant macrame curtain in natural beige tones, perfect for adding texture and warmth to any window.
+                        </p>
+                        <a href="products.html" class="shop-button">Shop Now</a>
                     </div>
                 </div>
                 
-                <div class="product-card" data-product="Coastal Blue">
-                    <div class="product-image" style="background-image: url('https://via.placeholder.com/400x300/d4e0e6/534c40?text=Coastal+Blue');"></div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://via.placeholder.com/400x300/e6d4c9/534c40?text=Terracotta');"></div>
                     <div class="product-info">
-                        <div class="product-title">Coastal Blue</div>
-                        <div class="product-description">Serene blue-tinted macrame with oceanic pattern</div>
+                        <div class="product-category">Curtains</div>
+                        <h3 class="product-title">Earthy Terracotta Macrame Curtain</h3>
+                        <p class="product-description">
+                            Add warmth and earthy elegance to your space with our terracotta macrame curtain featuring geometric patterns.
+                        </p>
+                        <a href="products.html" class="shop-button">Shop Now</a>
                     </div>
                 </div>
                 
-                <div class="product-card" data-product="Earthy Terracotta">
-                    <div class="product-image" style="background-image: url('https://via.placeholder.com/400x300/e6d4c9/534c40?text=Earthy+Terracotta');"></div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://via.placeholder.com/400x300/e6e0d4/534c40?text=Mermaid+Tapestry');"></div>
                     <div class="product-info">
-                        <div class="product-title">Earthy Terracotta</div>
-                        <div class="product-description">Warm earth-toned macrame with geometric details</div>
+                        <div class="product-category">Kids Room</div>
+                        <h3 class="product-title">Mermaid Tapestry with Storage</h3>
+                        <p class="product-description">
+                            Transform your child's room with our enchanting mermaid tapestry and matching storage basket.
+                        </p>
+                        <a href="products.html" class="shop-button">Shop Now</a>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <section class="review-section" id="reviewSection">
-            <p class="selected-product">You selected: <span id="productName"></span></p>
-            <h2>We'd love to hear your thoughts!</h2>
-            <div class="review-options">
-                <button class="review-button" id="amazonReviewBtn">
-                    <i class="fab fa-amazon"></i> Leave a Review on Amazon
-                </button>
-                <button class="review-button" id="feedbackBtn">
-                    Send Feedback Directly to Us
-                </button>
-            </div>
-            
-            <div class="feedback-form" id="feedbackForm">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="feedback">Your Feedback</label>
-                    <textarea id="feedback" name="feedback" required></textarea>
-                </div>
-                <button type="submit" class="submit-button">Submit Feedback</button>
-            </div>
-        </section>
-    </div>
-    
-    <footer>
-        <div class="social-links">
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
         </div>
-        <div class="copyright">
-            &copy; 2025 Macrakido. All rights reserved.
+    </section>
+    
+    <section class="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2 class="about-title">Our Story</h2>
+                    <p class="about-description">
+                        Macrakido began with a passion for traditional macrame techniques and a vision to create beautiful, functional pieces for modern homes. Each design is thoughtfully crafted to bring texture and natural elements into your living spaces.
+                    </p>
+                    <p class="about-description">
+                        We believe in the beauty of handcrafted items and the warmth they bring to a home. Our artisans carefully create each piece using premium materials and traditional knotting techniques with contemporary design elements.
+                    </p>
+                    <p class="about-signature">— The Macrakido Team</p>
+                </div>
+                <div class="about-image" style="background-image: url('https://via.placeholder.com/600x800/e0d9cc/534c40?text=Our+Story');"></div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-subtitle">
+                Don't just take our word for it - hear from customers who have transformed their spaces with Macrakido.
+            </p>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-item">
+                    <p class="testimonial-text">
+                        The Natural Beige curtains are absolutely stunning! They've completely transformed my living room, adding so much texture and warmth. The quality is exceptional.
+                    </p>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-location">Portland, OR</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="newsletter">
+        <div class="container">
+            <h2 class="section-title">Join Our Community</h2>
+            <p class="section-subtitle">
+                Subscribe to our newsletter for new product announcements, styling tips, and exclusive offers.
+            </p>
+            
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">MACRAKIDO</div>
+                <div class="footer-tagline">Weaving Elegance Into Everyday Spaces</div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 Macrakido. All rights reserved.
+                </div>
+            </div>
         </div>
     </footer>
     
     <script>
-        // JavaScript for product selection and review flow
-        document.addEventListener('DOMContentLoaded', function() {
-            const productCards = document.querySelectorAll('.product-card');
-            const reviewSection = document.getElementById('reviewSection');
-            const productNameSpan = document.getElementById('productName');
-            const amazonReviewBtn = document.getElementById('amazonReviewBtn');
-            const feedbackBtn = document.getElementById('feedbackBtn');
-            const feedbackForm = document.getElementById('feedbackForm');
-            
-            // When a product card is clicked
-            productCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const productName = this.getAttribute('data-product');
-                    productNameSpan.textContent = productName;
-                    
-                    // Show review section
-                    reviewSection.classList.add('active');
-                    
-                    // Scroll to review section
-                    reviewSection.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Set the Amazon link based on product
-                    // You would replace these URLs with your actual Amazon product URLs
-                    let amazonUrl;
-                    switch(productName) {
-                        case 'Natural Beige':
-                            amazonUrl = 'https://amazon.com/your-product-link-1';
-                            break;
-                        case 'Coastal Blue':
-                            amazonUrl = 'https://amazon.com/your-product-link-2';
-                            break;
-                        case 'Earthy Terracotta':
-                            amazonUrl = 'https://amazon.com/your-product-link-3';
-                            break;
-                        default:
-                            amazonUrl = 'https://amazon.com/your-store';
-                    }
-                    
-                    amazonReviewBtn.onclick = function() {
-                        window.open(amazonUrl, '_blank');
-                    };
-                });
-            });
-            
-            // Toggle feedback form
-            feedbackBtn.addEventListener('click', function() {
-                feedbackForm.classList.toggle('active');
-                
-                if (feedbackForm.classList.contains('active')) {
-                    feedbackForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            });
-            
-            // Handle form submission (you would add AJAX or form handling here)
-            const submitButton = document.querySelector('.submit-button');
-            submitButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Thank you for your feedback! We appreciate your input.');
-                // Reset form
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('feedback').value = '';
-                feedbackForm.classList.remove('active');
-            });
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Form submission (placeholder)
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            newsletterForm.reset();
         });
     </script>
 </body>
