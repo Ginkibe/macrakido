@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Macrakido</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles specific to the thank you page */
+        .review-section {
+            display: none;
+            text-align: center;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        .review-section.active {
+            display: block;
+        }
+        
+        .selected-product {
+            font-weight: 600;
+            color: #8a7e6b;
+            margin-bottom: 1rem;
+        }
+        
+        .review-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .review-button {
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #8a7e6b;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .review-button:hover {
+            background-color: #706656;
+        }
+        
+        .free-gift-section {
+            text-align: center;
+            background-color: #efe9dd;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+        
+        .gift-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .gift-description {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .gift-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .step-card {
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #534c40;
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-description {
+            font-size: 0.9rem;
+            color: #706656;
+        }
+        
+        .claim-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .upload-area {
+            border: 2px dashed #e0d9cc;
+            border-radius: 5px;
+            padding: 2rem;
+            text-align: center;
+            background-color: #f9f7f3;
+            transition: border-color 0.3s;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+        }
+        
+        .upload-area:hover {
+            border-color: #8a7e6b;
+        }
+        
+        .upload-icon {
+            font-size: 2rem;
+            color: #8a7e6b;
+            margin-bottom: 1rem;
+        }
+        
+        .upload-text {
+            font-size: 0.9rem;
+            color: #706656;
+        }
+        
+        #reviewImageUpload {
+            display: none;
+        }
+        
+        .preview-image {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 5px;
+            display: none;
+            margin: 1rem auto;
+        }
+        
+        .submission-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background-color: #f0f7e6;
+            border-radius: 8px;
+            border: 1px solid #c5e0b4;
+            margin-top: 2rem;
+        }
+        
+        .success-icon {
+            font-size: 3rem;
+            color: #70b04a;
+            margin-bottom: 1rem;
+        }
+        
+        .terms-text {
+            font-size: 0.8rem;
+            color: #8a7e6b;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .gift-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step-card {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">MACRAKIDO</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    
+    <div class="page-banner">
+        <div class="container">
+            <h1>Thank You</h1>
+            <p>We're grateful you chose our Premium Macrame products for your space.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <section class="thank-you-section">
+            <h2>Your Purchase Makes a Difference</h2>
+            <p class="message">
+                Each Macrakido piece is carefully handcrafted with attention to detail, bringing 
+                elegance and natural beauty to your home. We hope you enjoy your new macrame piece 
+                as much as we enjoyed creating it for you.
+            </p>
+        </section>
+        
+        <div class="decorative-divider"></div>
+        
+        <section class="free-gift-section">
+            <h2 class="gift-title">Claim Your Free Gift!</h2>
+            <p class="gift-description">
+                As a token of our appreciation, we'd like to offer you a complimentary Macrakido gift. 
+                Simply share your feedback about your purchase and provide your shipping information below.
+            </p>
+            
+            <div class="gift-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Leave a Review</h3>
+                    <p class="step-description">
+                        Share your honest feedback about your Macrakido product on Amazon. 
+                        Video reviews are especially appreciated!
+                    </p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Take a Screenshot</h3>
+                    <p class="step-description">
+                        Capture a screenshot of your submitted review 
+                        (your name can be hidden for privacy).
+                    </p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Submit Form Below</h3>
+                    <p class="step-description">
+                        Fill in your details and upload your review screenshot 
+                        to claim your free Macrakido gift.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="claim-form">
+                <h3 style="margin-bottom: 1.5rem; text-align: center;">Claim Your Free Gift</h3>
+                
+                <form id="giftClaimForm">
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="orderNumber">Amazon Order Number</label>
+                                <input type="text" id="orderNumber" name="orderNumber" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="productName">Product Purchased</label>
+                                <select id="productName" name="productName" required>
+                                    <option value="">Select your product</option>
+                                    <option value="Natural Beige Curtain">Natural Beige Macrame Curtain</option>
+                                    <option value="Coastal Blue Curtain">Coastal Blue Macrame Curtain</option>
+                                    <option value="Earthy Terracotta Curtain">Earthy Terracotta Macrame Curtain</option>
+                                    <option value="Mermaid Tapestry">Mermaid Tapestry with Storage</option>
+                                    <option value="Dinosaur Tapestry">Dinosaur Tapestry with Storage</option>
+                                    <option value="Lotus Tapestry">Lotus Flower Wall Tapestry</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Shipping Address</label>
+                        <textarea id="address" name="address" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Review Screenshot</label>
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <p class="upload-text">Click to upload a screenshot of your review</p>
+                            <input type="file" id="reviewImageUpload" name="reviewImage" accept="image/*" required>
+                        </div>
+                        <img id="previewImage" class="preview-image" alt="Review preview">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="feedbackText">Additional Feedback (Optional)</label>
+                        <textarea id="feedbackText" name="feedbackText" placeholder="Share any additional thoughts about your purchase..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="newsletterConsent" id="newsletterConsent" checked>
+                            <span class="checkmark"></span>
+                            I'd like to receive occasional updates about new products and special offers
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit & Claim Free Gift</button>
+                    
+                    <p class="terms-text">
+                        By submitting this form, you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>. 
+                        Your information will not be shared with third parties.
+                    </p>
+                </form>
+                
+                <div class="submission-success" id="submissionSuccess">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Thank You!</h3>
+                    <p>Your submission has been received. We'll process your free gift and send it to your provided address within 2-3 weeks.</p>
+                    <p style="margin-top: 1rem;">A confirmation email has been sent to your email address.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="product-section">
+            <h2>Explore More Macrakido Products</h2>
+            <div class="products grid grid-3">
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('images/products/natural-curtain.jpg');"></div>
+                    <div class="product-details">
+                        <div class="product-name">Natural Beige Macrame Curtain</div>
+                        <div class="product-description">Elegant macrame curtain in natural beige tones</div>
+                        <a href="products.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('images/products/mermaid-tapestry.jpg');"></div>
+                    <div class="product-details">
+                        <div class="product-name">Mermaid Tapestry</div>
+                        <div class="product-description">Transform your child's room with our enchanting design</div>
+                        <a href="products.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('images/products/terracotta-curtain.jpg');"></div>
+                    <div class="product-details">
+                        <div class="product-name">Earthy Terracotta Curtain</div>
+                        <div class="product-description">Add warmth with this earth-toned macrame curtain</div>
+                        <a href="products.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">MACRAKIDO</div>
+                <div class="footer-tagline">Weaving Elegance Into Everyday Spaces</div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 Macrakido. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+        
+        // Image upload preview
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('reviewImageUpload');
+        const previewImage = document.getElementById('previewImage');
+        
+        uploadArea.addEventListener('click', function() {
+            fileInput.click();
+        });
+        
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block';
+                    uploadArea.querySelector('.upload-text').textContent = 'Click to change image';
+                }
+                
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        });
+        
+        // Form submission
+        document.getElementById('giftClaimForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to your server
+            // For demonstration, we'll just show the success message
+            
+            // Form validation
+            if (this.checkValidity()) {
+                // Hide form and show success message
+                this.style.display = 'none';
+                document.getElementById('submissionSuccess').style.display = 'block';
+                
+                // In a real implementation, you would send the form data to your server here
+                // using fetch or XMLHttpRequest
+                
+                // Example of data collection for the email list:
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    orderNumber: document.getElementById('orderNumber').value,
+                    product: document.getElementById('productName').value,
+                    address: document.getElementById('address').value,
+                    feedback: document.getElementById('feedbackText').value,
+                    newsletter: document.getElementById('newsletterConsent').checked
+                };
+                
+                console.log('Form data collected:', formData);
+                
+                // You would send this data to your server to:
+                // 1. Store in your customer database
+                // 2. Add to your email list if they consented
+                // 3. Process the gift fulfillment
+            }
+        });
+    </script>
+</body>
+</html>
