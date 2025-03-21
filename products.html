@@ -31,9 +31,13 @@
         
         .product-image {
             height: 350px;
-            background-size: cover;
-            background-position: center;
+            /*background-size: cover;
+            background-position: center;*/
             position: relative;
+            background-size: cover !important; /* This ensures the whole image fits */
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            margin: 15px; /* This adds space between the image and the card edge */
         }
         
         .product-image .category-tag {
