@@ -253,7 +253,10 @@
             height: 350px;
             background-size: cover;
             background-position: center;
-            padding: 20px;
+            background-repeat: no-repeat;
+            padding: 20px; /* Adds white space inside the container */
+            background-color: white; /* Ensures the padding area is white */
+            box-sizing: border-box; /* Makes sure padding doesn't add to the total height */
         }
         
         .product-info {
